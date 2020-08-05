@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<meta title="Bootstrap" package="com.example.Bootstrap" version="1.0.0" company="My Company" />
+	<app main="Bootstrap" path="build" />
+	
+	<window allow-high-dpi="true"/>
+	<window fps="60"/>
+	<window fps="0" if="html5"/>
+	
+	<source path="src" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="actuate" />
+	<haxelib name="signals" />
+	<haxelib name="robotlegs" />
+	<haxelib name="swiftsuspenders" />
+	<haxelib name="feathersui" />
+
+	<icon path="assets/icons/icon.svg"/>
+</project>
