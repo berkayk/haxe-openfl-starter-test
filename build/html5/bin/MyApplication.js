@@ -892,7 +892,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "8";
+	app.meta.h["build"] = "1";
 	app.meta.h["company"] = "My Company";
 	app.meta.h["file"] = "MyApplication";
 	app.meta.h["name"] = "Bootstrap";
@@ -6284,9 +6284,13 @@ ModelConfig.__name__ = "ModelConfig";
 ModelConfig.__interfaces__ = [robotlegs_bender_framework_api_IConfig];
 ModelConfig.prototype = {
 	injector: null
+	,context: null
 	,configure: function() {
+		this.context.afterInitializing($bind(this,this.init));
+	}
+	,init: function() {
 		this.injector.map(UsersModel).asSingleton();
-		haxe_Log.trace("Initialized ModelConfig",{ fileName : "src/ModelConfig.hx", lineNumber : 11, className : "ModelConfig", methodName : "configure"});
+		haxe_Log.trace("Initialized ModelConfig at init method.",{ fileName : "src/ModelConfig.hx", lineNumber : 21, className : "ModelConfig", methodName : "init"});
 	}
 	,__class__: ModelConfig
 };
@@ -86042,7 +86046,8 @@ openfl_display_DisplayObject.__tempStack = new lime_utils_ObjectPool(function() 
 feathers_core_FeathersControl.__meta__ = { fields : { layoutData : { style : null}, focusRectSkin : { style : null}}};
 feathers_controls_LayoutGroup.__meta__ = { obj : { defaultXmlProperty : ["xmlContent"]}};
 feathers_controls_LayoutGroup.VARIANT_TOOL_BAR = "toolBar";
-ModelConfig.__meta__ = { fields : { injector : { inject : null}}};
+ModelConfig.__meta__ = { fields : { injector : { inject : null}, context : { inject : null}}};
+ModelConfig.__rtti = "<class path=\"ModelConfig\" params=\"\">\n\t<implements path=\"robotlegs.bender.framework.api.IConfig\"/>\n\t<injector public=\"1\">\n\t\t<c path=\"robotlegs.bender.framework.api.IInjector\"/>\n\t\t<meta><m n=\"inject\"/></meta>\n\t</injector>\n\t<context public=\"1\">\n\t\t<c path=\"robotlegs.bender.framework.api.IContext\"/>\n\t\t<meta><m n=\"inject\"/></meta>\n\t</context>\n\t<configure public=\"1\" set=\"method\" line=\"15\"><f a=\"\"><x path=\"Void\"/></f></configure>\n\t<init set=\"method\" line=\"19\"><f a=\"\"><x path=\"Void\"/></f></init>\n\t<new public=\"1\" set=\"method\" line=\"13\"><f a=\"\"><x path=\"Void\"/></f></new>\n\t<meta>\n\t\t<m n=\":directlyUsed\"/>\n\t\t<m n=\":rtti\"/>\n\t\t<m n=\":keepSub\"/>\n\t</meta>\n</class>";
 Xml.Element = 0;
 Xml.PCData = 1;
 Xml.CData = 2;
