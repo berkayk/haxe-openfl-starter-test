@@ -15,6 +15,7 @@
 	<haxelib name="robotlegs" />
 	<haxelib name="swiftsuspenders" />
 	<haxelib name="feathersui" />
+	<haxelib name="notifier" version="1.1.23" />
 
 	<icon path="assets/icons/icon.svg"/>
 </project>
